@@ -60,7 +60,34 @@ advanced:
     spawnLimit: 100
   debug: false
   jupyterLab: true
-  additionalAdmin: ""
+  userHomeAddStorageSubPath: true
+  userHomeSubPath: "dataporten-home"
+  additionalAdmin:
+    - ""
+  startTimeout: 1200
+  ipyparallel:
+    enabled: false
+    workers: 2
+    image: "quay.io/uninett/jupyterhub-singleuser:20191012-5691f5c"
+    resources:
+      requests:
+        cpu: "1"
+        memory: 1G
+        gpu: 0
+      limits:
+        cpu: "2"
+        memory: 1G
+        gpu: 0
+  vnc:
+    enabled: false
+    image: "quay.io/uninett/desktop-vnc:20190921-c096454"
+    resources:
+      requests:
+        cpu: "1"
+        memory: 1G
+      limits:
+        cpu: "2"
+        memory: 1G
   sharedData:
     enabled: false
     subPath: "data"
@@ -69,7 +96,7 @@ advanced:
     enabled: false
     minioAccessKey: "accesskeyexample"
     minioSecretKey: "secretkeyexample"
-  userImage: quay.io/uninett/jupyterhub-singleuser:20190911-e0a7653
+  userImage: quay.io/uninett/jupyterhub-singleuser:20191012-5691f5c
 appstore_generated_data:
   appstore_meta_data:
     contact_email: "example@uninett.no"
