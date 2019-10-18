@@ -15,12 +15,8 @@ data:
         access: true
         users:
           - {{ .Values.appstore_generated_data.dataporten.owner }}
-          {{- if ne (first .Values.advanced.additionalAdmin) "" }}
-          {{- range .Values.advanced.additionalAdmin }}
           - {{ . }}
-          {{- end }}
-          {{- end }}
-
+          - {{ .Values.advanced.additionalAdmin }}
     {{- /* Cull */}}
     {{- if .Values.advanced.killIdlePods.enabled }}
     cull:
