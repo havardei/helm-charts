@@ -15,8 +15,12 @@ data:
         access: true
         users:
           - {{ .Values.appstore_generated_data.dataporten.owner }}
+          {{- if ne (first .Values.advanced.additionalAdmin) "" }}
+          {{- range .Values.advanced.additionalAdmin }}
           - {{ . }}
-          - {{ .Values.advanced.additionalAdmin }}
+          {{- end }}
+          {{- end }}
+
     {{- /* Cull */}}
     {{- if .Values.advanced.killIdlePods.enabled }}
     cull:
@@ -40,7 +44,6 @@ data:
       defaultUrl: "/lab"
     {{- end }}
       extraEnv:
-        HOME: "/home/$JUPYTERHUB_USER"
         JUPYTER_HUB: "1"
         PVC_MOUNT_PATH: /mnt/data
     {{- if .Values.advanced.jupyterLab }}
