@@ -101,9 +101,11 @@ spec:
             mkdir -p  /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-mlflow && \
             mkdir -p  /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-tensorboard && \
             mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/home && \
+            mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/exchange && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-mlflow && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-tensorboard && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools && \
+            chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/exchange && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/home"
         volumeMounts:
         - name: {{ (first .Values.persistentStorage).existingClaimName }}
@@ -112,7 +114,7 @@ spec:
       {{- end }}
       containers:
       - name: hub-container
-        image: {{ .Values.hubImage }}
+        image: {{ .Values.advanced.hubImage }}
         command:
           - jupyterhub
           - --config

@@ -13,7 +13,7 @@ data:
   values.yaml: |
     {{- /* Auth */}}
     auth:
-      type: "{{ .Values.auth.type }}"
+      type: "native"
       state:
         enabled: false
       admin:
@@ -117,6 +117,15 @@ data:
             mountPropagation: "HostToContainer"
             subPath: "{{ template "subPath" . }}{{ $sharedSubPath }}"
             readOnly: {{ $sharedReadOnly }}
+          {{- end }}
+          {{- end }}
+          {{- if .Values.advanced.nbgrader.enabled }}
+          {{- range .Values.persistentStorage }}
+          - name: "{{ .existingClaimName }}"
+            mountPath: "/srv/nbgrader/exchange"
+            mountPropagation: "HostToContainer"
+            subPath: "exchange"
+            readOnly: false
           {{- end }}
           {{- end }}
           {{- end }}
