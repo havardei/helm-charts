@@ -39,7 +39,7 @@ spec:
       initContainers:
         - name: image-pull-singleuser
           image: "{{ .Values.advanced.userImage }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           resources:
             limits:
               cpu: 20m

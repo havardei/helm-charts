@@ -13,7 +13,7 @@ data:
   values.yaml: |
     {{- /* Auth */}}
     auth:
-      type: "native"
+      type: {{ .Values.auth.type }}
       state:
         enabled: false
       admin:
