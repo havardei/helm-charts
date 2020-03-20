@@ -1,3 +1,5 @@
+auth:
+  type: "dataporten"
 persistentStorage:
   - existingClaim: ""
     existingClaimName: "example-name"
