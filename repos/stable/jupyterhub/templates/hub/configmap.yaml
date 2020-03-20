@@ -126,6 +126,11 @@ data:
             mountPropagation: "HostToContainer"
             subPath: "exchange"
             readOnly: false
+          - name: "{{ .existingClaimName }}"
+            mountPath: "/srv/nbgrader/courses"
+            mountPropagation: "HostToContainer"
+            subPath: "courses"
+            readOnly: false
           {{- end }}
           {{- end }}
           {{- end }}
