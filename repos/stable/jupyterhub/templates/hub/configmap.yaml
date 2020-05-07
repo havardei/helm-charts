@@ -113,7 +113,7 @@ data:
           {{- if .Values.advanced.sharedData.enabled }}
           {{- range .Values.persistentStorage }}
           - name: "{{ .existingClaimName }}"
-            mountPath: "/mnt/{{ .existingClaimName }}"
+            mountPath: "/mnt/data"
             mountPropagation: "HostToContainer"
             subPath: "{{ template "subPath" . }}{{ $sharedSubPath }}"
             readOnly: {{ $sharedReadOnly }}
