@@ -40,7 +40,7 @@ data:
     singleuser:
       image:
         name: "{{ .Values.advanced.userImage }}"
-        pullPolicy: IfNotPresent
+        pullPolicy: Always
       startTimeout: {{ .Values.advanced.startTimeout }}
       scheduler-strategy: pack
       uid: 999
