@@ -391,9 +391,7 @@ spec:
         - name: {{ .existingClaimName }}
           mountPath: /mnt/{{ .existingClaimName }}
           mountPropagation: HostToContainer
-          {{ if ne .subPath "/" }}
-          subPath: {{ .subPath }}
-          {{ end }}
+          subPath: "data"
         {{- end }}
         {{ end }}
 {{- end }}
