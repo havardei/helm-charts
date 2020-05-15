@@ -100,7 +100,7 @@ spec:
           - "mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-hub && \
             mkdir -p  /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-mlflow && \
             mkdir -p  /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-tensorboard && \
-            mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/home && \
+            mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/dataporten-home && \
             mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/exchange && \
             mkdir -p /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/courses && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools/{{ .Release.Name }}-mlflow && \
@@ -108,7 +108,7 @@ spec:
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/.tools && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/exchange && \
             chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/courses && \
-            chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/home"
+            chmod g+w /mnt/{{ (first .Values.persistentStorage).existingClaimName }}/dataporten-home"
         volumeMounts:
         - name: {{ (first .Values.persistentStorage).existingClaimName }}
           mountPropagation: HostToContainer
