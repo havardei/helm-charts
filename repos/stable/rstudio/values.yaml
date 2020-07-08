@@ -2,11 +2,11 @@ ingress:
   host: "local-chart.example.com"
 resources:
   requests:
-    cpu: 200m
-    memory: 200M
+    cpu: "2"
+    memory: 2G
   limits:
-    cpu: 400m
-    memory: 400M
+    cpu: "4"
+    memory: 2G
 uid: 999
 gid: 999
 username: rstudio
@@ -17,6 +17,7 @@ persistentStorage:
   existingClaim: ""
   existingClaimName: "example-name"
   subPath: "/"
+  readOnly: false
 appstore_generated_data:
   appstore_meta_data:
     contact_email: "example@uninett.no"
@@ -30,7 +31,8 @@ appstore_generated_data:
       - ""
 advanced:
   debug: false
-  dockerImage: quay.io/uninett/rstudio-server:20190529-d7d53eb
+  dockerImage: quay.io/uninett/rstudio-server:20200515-4f30caa
+  proxyImage: quay.io/uninett/rstudio-proxy:20200515-c7c1650
 authGroupProviders:
   - url: "https://groups-api.dataporten.no/groups/me/groups"
     scope: groups

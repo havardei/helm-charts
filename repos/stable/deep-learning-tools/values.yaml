@@ -2,17 +2,18 @@ ingress:
   host: "example.localhost.com"
 resources:
   requests:
-    cpu: 1
-    memory: 2Gi
+    cpu: "4"
+    memory: 4Gi
     gpu: 1
   limits:
-    cpu: 2
+    cpu: "8"
     memory: 4Gi
     gpu: 1
 persistentStorage:
   - existingClaim: ""
     existingClaimName: "example-name"
     subPath: "/"
+    readOnly: false
 appstore_generated_data:
   appstore_meta_data:
     contact_email: "example@uninett.no"

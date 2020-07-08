@@ -134,7 +134,7 @@ spec:
             mountPath: /conf
         workingDir: /conf
       - name: rstudio-proxy
-        image: quay.io/uninett/rstudio-proxy:20190527-acb965d
+        image: {{ .Values.advanced.proxyImage }}
         imagePullPolicy: Always
         volumeMounts:
           - name: proxy-config
@@ -194,12 +194,14 @@ spec:
         - name: {{ .Values.persistentStorage.existingClaimName }}
           mountPath: /mnt/{{ .Values.persistentStorage.existingClaimName }}
           mountPropagation: HostToContainer
+          readOnly: {{ .Values.persistentStorage.readOnly }}
           {{ if ne .Values.persistentStorage.subPath "/" }}
           subPath: {{ .Values.persistentStorage.subPath }}
           {{ end }}
         - name: {{ .Values.persistentStorage.existingClaimName }}
           mountPath: /home/{{ .Values.username }}
           mountPropagation: HostToContainer
+          readOnly: {{ .Values.persistentStorage.readOnly }}
           subPath: home/{{ .Values.username }}
         {{- end -}}
 
