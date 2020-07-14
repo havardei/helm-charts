@@ -226,7 +226,7 @@ data:
         c.Spawner.http_timeout = {{ .Values.advanced.startTimeout }}
         c.Spawner.start_timeout = {{ .Values.advanced.startTimeout }}
     debug:
-      enabled: {{ .Values.advanced.debug | quote }}
+      enabled: {{ .Values.advanced.debug }}
 
 {{- if ne (first .Values.persistentStorage).existingClaim "" }}
 ---
