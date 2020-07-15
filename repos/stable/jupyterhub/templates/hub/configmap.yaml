@@ -220,8 +220,8 @@ data:
 
     hub:
       base_url: "/"
-      db_url: "sqlite:///jupyterhub.sqlite" # Use in memory
-      concurrent-spawn-limit: {{ .Values.advanced.notebook.spawnLimit | quote }}
+      db_url: "sqlite://" # Use in memory
+      concurrent_spawn_limit: {{ .Values.advanced.notebook.spawnLimit }}
       extraConfig: |
         c.Spawner.http_timeout = {{ .Values.advanced.startTimeout }}
         c.Spawner.start_timeout = {{ .Values.advanced.startTimeout }}
