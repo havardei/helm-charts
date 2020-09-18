@@ -32,6 +32,10 @@ spec:
         app: {{ template "fullname" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
     spec:
+      {{- if .Values.advanced.privatereg.enabled }}
+      imagePullSecrets:
+      - name: {{ .Values.advanced.privatereg.secret }}
+      {{- end }}
       terminationGracePeriodSeconds: 0
       automountServiceAccountToken: false
       securityContext:
