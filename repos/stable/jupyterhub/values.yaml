@@ -90,6 +90,10 @@ advanced:
       limits:
         cpu: "2"
         memory: 1G
+  nbgrader:
+    enabled: false
+    teacher: false
+    token: ""
   sharedData:
     enabled: false
     subPath: "data"
