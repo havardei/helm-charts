@@ -117,6 +117,7 @@ spec:
       containers:
       - name: hub-container
         image: {{ .Values.advanced.hubImage }}
+        imagePullPolicy: IfNotPresent
         command:
           - jupyterhub
           - --config
