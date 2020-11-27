@@ -226,7 +226,7 @@ data:
         c.Spawner.http_timeout = {{ .Values.advanced.startTimeout }}
         c.Spawner.start_timeout = {{ .Values.advanced.startTimeout }}
         {{- if .Values.advanced.nbgrader.enabled }}
-        c.JupyterHub.services.append({'name': 'ngshare','url': 'http://ngshare:8080','api_token': '{{ .Values.advanced.nbgrader.token }}'})
+        c.JupyterHub.services.append({'name': '{{ .Values.advanced.nbgrader.ngsharesvc }}','url': '{{ .Values.advanced.nbgrader.ngshareurl }}','api_token': '{{ .Values.advanced.nbgrader.token }}'})
         {{- end }}
     debug:
       enabled: {{ .Values.advanced.debug }}

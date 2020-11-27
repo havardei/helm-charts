@@ -94,6 +94,8 @@ advanced:
     enabled: false
     teacher: false
     token: ""
+    ngshareurl: ""
+    ngsharesvc: ""
   sharedData:
     enabled: false
     subPath: "data"
