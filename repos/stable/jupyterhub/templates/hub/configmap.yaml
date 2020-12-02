@@ -49,6 +49,7 @@ data:
       defaultUrl: "/lab"
     {{- end }}
       extraEnv:
+        NS_NAME: "{{ .Release.Namespace }}"
         RELEASE_NAME: "{{ .Release.Name }}"
         JUPYTER_HUB: "1"
         PVC_MOUNT_PATH: /mnt/data
@@ -118,15 +119,6 @@ data:
             mountPropagation: "HostToContainer"
             subPath: "{{ template "subPath" . }}{{ $sharedSubPath }}"
             readOnly: {{ $sharedReadOnly }}
-          {{- end }}
-          {{- end }}
-          {{- if .Values.advanced.nbgrader.enabled }}
-          {{- range .Values.persistentStorage }}
-          - name: "{{ .existingClaimName }}"
-            mountPath: "/srv/nbgrader/exchange"
-            mountPropagation: "HostToContainer"
-            subPath: "exchange"
-            readOnly: false
           {{- end }}
           {{- end }}
           {{- if .Values.advanced.nbgrader.teacher }}
