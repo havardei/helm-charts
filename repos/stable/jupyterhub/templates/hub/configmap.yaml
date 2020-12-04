@@ -41,6 +41,9 @@ data:
       image:
         name: "{{ .Values.advanced.userImage }}"
         pullPolicy: "{{ .Values.advanced.imagePullPolicy }}"
+      altImage:
+        name: "{{ .Values.advanced.userAltImage }}"
+        pullPolicy: "{{ .Values.advanced.imagePullPolicy }}"
       startTimeout: {{ .Values.advanced.startTimeout }}
       scheduler-strategy: pack
       uid: 999
