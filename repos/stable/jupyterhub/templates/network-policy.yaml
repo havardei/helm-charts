@@ -17,7 +17,7 @@ spec:
     - from:
       - namespaceSelector:
           matchLabels:
-            name: kube-ingress
+            namespace: {{ .Values.ingressControllerNameSpace }}
       ports:
         - protocol: TCP
           port: 8000

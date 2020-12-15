@@ -124,3 +124,4 @@ authGroupProviders:
   - url: "https://groups-api.dataporten.no/groups/me/groups"
     scope: groups
 userInfoURL: "https://auth.dataporten.no/openid/userinfo"
+ingressControllerNameSpace: ingress-nginx
