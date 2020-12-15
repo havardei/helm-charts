@@ -17,7 +17,7 @@ spec:
     - from:
       - namespaceSelector:
           matchLabels:
-            namespace: {{ .Values.ingressControllerNameSpace }}
+            name: {{ .Values.ingressControllerNamespaceLabel }}
       ports:
         - protocol: TCP
           port: 8000
