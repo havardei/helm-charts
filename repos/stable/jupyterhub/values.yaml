@@ -5,7 +5,7 @@ persistentStorage:
     existingClaimName: "example-name"
     subPath: "/"
 ingress:
-  host: "test.appstore-dep.ioudaas.no"
+  host: "test.localhost"
 userNotebookType:
   resources:
     requests:
@@ -70,7 +70,7 @@ advanced:
   ipyparallel:
     enabled: false
     workers: 2
-    image: "quay.io/uninett/jupyterhub-singleuser:20200519-4d8716b"
+    image: "quay.io/ntnu/jh_su_default:20210105"
     resources:
       requests:
         cpu: "1"
