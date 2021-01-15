@@ -104,9 +104,9 @@ advanced:
     enabled: false
     minioAccessKey: "accesskeyexample"
     minioSecretKey: "secretkeyexample"
-  userImage: quay.io/uninett/jupyterhub-singleuser:20200519-4d8716b
-  userAltImage: quay.io/uninett/jupyterhub-singleuser:20200519-4d8716b
-  hubImage: quay.io/uninett/jupyterhub-server:20200520-4fef605
+  userImage: quay.io/ntnu/jh_su_default:20210105
+  userAltImage: quay.io/ntnu/jh_su_default:20210105
+  hubImage: quay.io/ntnu/jh_srv:20201218
   imagePullPolicy: "IfNotPresent"
   privatereg: 
     enabled: false
