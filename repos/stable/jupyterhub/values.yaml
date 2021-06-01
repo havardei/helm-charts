@@ -4,6 +4,7 @@ persistentStorage:
   - existingClaim: ""
     existingClaimName: "example-name"
     subPath: "/"
+    capacity: 1Gi
 ingress:
   host: "test.localhost"
 userNotebookType:

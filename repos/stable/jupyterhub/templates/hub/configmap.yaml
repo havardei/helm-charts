@@ -144,7 +144,12 @@ data:
           subPath: "{{ .Values.advanced.userHomeSubPath }}/{username}"
           {{- end }}
     {{- else }}
-        type: "none"
+        type: "dynamic"
+        dynamic:
+          pvcNameTemplate: claim-{username}{servername}
+          volumeNameTemplate: volume-{username}{servername}
+          storageAccessModes: [ReadWriteOnce]
+        capacity: {{ (first .Values.persistentStorage).capacity }}
     {{- end }}
         homeMountPath: "/home/{username}"
       {{- if .Values.userNotebookType.resources.limits.memory }}
