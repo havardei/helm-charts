@@ -215,7 +215,7 @@ data:
 
     hub:
       base_url: "/"
-      db_url: "sqlite://" # Use in memory
+      db_url: {{ .Values.advanced.dbUrl }}
       concurrent_spawn_limit: {{ .Values.advanced.notebook.spawnLimit }}
       extraConfig: |
         c.Spawner.http_timeout = {{ .Values.advanced.startTimeout }}

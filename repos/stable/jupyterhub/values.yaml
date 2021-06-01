@@ -54,6 +54,7 @@ supplementalGroups:
   - name: ""
     gid: ""
 advanced:
+  dbUrl: "sqlite://"
   debug: false
   jupyterLab: true
   userHomeAddStorageSubPath: true
